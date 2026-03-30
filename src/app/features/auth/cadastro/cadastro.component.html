@@ -1,0 +1,7 @@
+<h2>Cadastro</h2>
+<input type="text" [value]="nome()" (input)="nome.set($any($event.target).value)" />
+<input type="email" [value]="email()" (input)="email.set($any($event.target).value)" />
+<input type="password" [value]="senha()" (input)="senha.set($any($event.target).value)" />
+<button (click)="cadastrar()">Cadastrar</button>
+<p>{{ mensagem() }}</p>
+

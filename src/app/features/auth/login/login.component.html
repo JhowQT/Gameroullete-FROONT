@@ -1,0 +1,6 @@
+<h2>Login</h2>
+<input type="email" [value]="email()" (input)="email.set($any($event.target).value)" />
+<input type="password" [value]="senha()" (input)="senha.set($any($event.target).value)" />
+<button (click)="login()">Entrar</button>
+<p>{{ mensagem() }}</p>
+*/
