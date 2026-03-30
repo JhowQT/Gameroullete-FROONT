@@ -1,26 +1,30 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  templateUrl: './login.component.html'
+  imports: [FormsModule, CommonModule],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'] // 👈 ADICIONADO
 })
 export class LoginComponent {
-  email = signal('');
-  senha = signal('');
-  mensagem = signal('');
+
+  email = '';
+  senha = '';
 
   constructor(private auth: AuthService, private router: Router) {}
 
   login() {
-    this.auth.login(this.email(), this.senha()).subscribe({
-      next: () => {
-        this.mensagem.set('Login realizado!');
-        this.router.navigate(['/home']);
-      },
-      error: () => this.mensagem.set('Erro no login')
+    this.auth.login({
+      email: this.email,
+      senha: this.senha
+    }).subscribe({
+      next: () => this.router.navigate(['/roleta']),
+      error: () => alert('Login inválido')
     });
   }
 }

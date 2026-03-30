@@ -1,7 +1,26 @@
-<h2>Cadastro</h2>
-<input type="text" [value]="nome()" (input)="nome.set($any($event.target).value)" />
-<input type="email" [value]="email()" (input)="email.set($any($event.target).value)" />
-<input type="password" [value]="senha()" (input)="senha.set($any($event.target).value)" />
-<button (click)="cadastrar()">Cadastrar</button>
-<p>{{ mensagem() }}</p>
+<div class="flex flex-col items-center justify-center h-screen bg-gray-900 text-white">
 
+  <h2 class="text-3xl mb-6 font-bold">Cadastro</h2>
+
+  <input [(ngModel)]="nome" placeholder="Nome"
+         class="p-2 mb-2 w-64 rounded text-black">
+
+  <input [(ngModel)]="email" placeholder="Email"
+         class="p-2 mb-2 w-64 rounded text-black">
+
+  <input [(ngModel)]="senha" type="password" placeholder="Senha"
+         class="p-2 mb-2 w-64 rounded text-black">
+
+  <input [(ngModel)]="steamId" placeholder="Steam ID"
+         class="p-2 mb-4 w-64 rounded text-black">
+
+  <button (click)="cadastrar()"
+          class="bg-green-600 px-4 py-2 rounded hover:bg-green-700">
+    Cadastrar
+  </button>
+
+  <a routerLink="/login" class="mt-4 text-blue-400">
+    Já tenho conta
+  </a>
+
+</div>

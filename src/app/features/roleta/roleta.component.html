@@ -1,0 +1,13 @@
+<h2>Roleta</h2>
+
+<button (click)="girar()">Girar</button>
+
+<ul>
+  <li *ngFor="let jogo of jogos">
+    {{ jogo }}
+  </li>
+</ul>
+
+<h3 *ngIf="resultado">
+   Resultado: {{ resultado }}
+</h3>
